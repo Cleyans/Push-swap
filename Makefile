@@ -2,10 +2,12 @@ NAME := push_swap
 
 CC := cc
 
-FT			= Libft
+CFLAGS = -Wall -Wextra -Werror
+
+FT			= include/Libft
 LIBFT		= $(FT)/libft.a
 
-SOURCE := push_swap.c subject_funcs01.c subject_funcs02.c libft_func.c
+SOURCE := src/push_swap.c src/subject_funcs01.c src/subject_funcs02.c src/libft_func.c src/subject_utils.c src/error.c src/not_radix.c
 OBJ 	= $(SOURCE:.c=.o)
 
 all: $(NAME)
@@ -17,13 +19,13 @@ $(LIBFT): $(FT)
 	$(MAKE) -C $(FT)
 	
 %.o: %.c
-	$(CC) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
+		rm -f $(OBJ)
 
 fclean: clean
 		rm -rf $(NAME)
-		rm -rf $(OBJ)
 
 re: fclean all
 
