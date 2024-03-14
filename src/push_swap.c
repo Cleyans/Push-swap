@@ -6,7 +6,7 @@
 /*   By: brclemen <brclemen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 16:36:16 by brclemen          #+#    #+#             */
-/*   Updated: 2024/03/14 02:08:07 by brclemen         ###   ########.fr       */
+/*   Updated: 2024/03/14 22:47:12 by brclemen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,32 +22,28 @@ int	main(int ac, char *av[])
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 
+	stack_a = NULL;
+	stack_b = NULL;
+	if (ac == 1)
+		return (0);
 	if (ac > 2 && error(av) != -1)
 	{
 		init_stack(&stack_a, av);
 		if (ac <= 6)
-		{
-			ft_five_args(ac, &stack_a, &stack_b);
-		}
-		else
-		{
-		}
+			ft_call_no_radix(ac, &stack_a, &stack_b);
 	}
 }
 
-void	ft_five_args(int ac, t_stack **stack_a, t_stack **stack_b)
+void	ft_call_no_radix(int ac, t_stack **stack_a, t_stack **stack_b)
 {
 	if (ac == 3)
 		ft_swap_a(stack_a);
 	if (ac == 4)
 		ft_three_content(stack_a);
 	if (ac == 5)
-	{
 		ft_four_content(stack_a, stack_b);
-	}
 	if (ac == 6)
-	{
-	}
+		ft_five_content(stack_a, stack_b);
 }
 
 void	init_stack(t_stack **stack, char *av[])

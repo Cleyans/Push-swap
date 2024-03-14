@@ -6,12 +6,14 @@
 /*   By: brclemen <brclemen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 16:32:47 by brclemen          #+#    #+#             */
-/*   Updated: 2024/03/14 02:10:09 by brclemen         ###   ########.fr       */
+/*   Updated: 2024/03/14 22:43:33 by brclemen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
+
+// 1 == RRA | 0 == RA //
 
 /*
 ************************************************************
@@ -48,7 +50,7 @@ void	ft_swap_a(t_stack **stack_a);
 void	ft_swap_b(t_stack **stack_b);
 void	ft_swap_ab(t_stack **stack_a, t_stack **stack_b);
 void	ft_push_a(t_stack **stack_a, t_stack **stack_b);
-void	ft_push_b(t_stack **stack_b, t_stack **stack_a);
+void	ft_push_b(t_stack **stack_a, t_stack **stack_b);
 void	ft_rotate_a(t_stack **stack_a);
 void	ft_rotate_ab(t_stack **stack_a, t_stack **stack_b);
 void	ft_reverse_rotate_a(t_stack **stack_a);
@@ -63,6 +65,7 @@ void	ft_lstadd_front_stack(t_stack **lst, t_stack *new);
 void	print_stack(t_stack *stack);
 void	ft_lstlast_stack(t_stack **lst);
 long	ft_atoi_push(const char *nptr);
+int		ft_lstsize_stack(t_stack *lst);
 
 // ===== Fonctions utiles ===== //
 
@@ -71,9 +74,13 @@ void	init_stack(t_stack **stack, char *av[]);
 
 // - NOT RADIX - //
 
-void	ft_five_args(int ac, t_stack **stack_a, t_stack **stack_b);
+void	ft_call_no_radix(int ac, t_stack **stack_a, t_stack **stack_b);
 void	ft_three_content(t_stack **stack_a);
 void	ft_four_content(t_stack **stack_a, t_stack **stack_b);
+void	ft_five_content(t_stack **stack_a, t_stack **stack_b);
+int		ft_lowest_content(t_stack **stack_a);
+int		ft_lowest_rotate(t_stack **stack_a);
+int		ft_lowest_index(t_stack **stack_a);
 
 // ===== Fonction errors ===== //
 

@@ -6,7 +6,7 @@
 /*   By: brclemen <brclemen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 17:31:21 by brclemen          #+#    #+#             */
-/*   Updated: 2024/03/13 17:49:51 by brclemen         ###   ########.fr       */
+/*   Updated: 2024/03/14 21:33:17 by brclemen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,19 @@ void	print_stack(t_stack *stack)
 		stack = stack->next;
 	}
 	ft_putchar_fd('\n', 1);
+}
+
+int	ft_lstsize_stack(t_stack *lst)
+{
+	int	index;
+
+	index = 0;
+	if (!lst)
+		return (0);
+	while (lst)
+	{
+		lst = lst->next;
+		index++;
+	}
+	return (index);
 }
