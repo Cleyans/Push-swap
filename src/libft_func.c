@@ -6,7 +6,7 @@
 /*   By: brclemen <brclemen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 17:31:21 by brclemen          #+#    #+#             */
-/*   Updated: 2024/03/14 21:33:17 by brclemen         ###   ########.fr       */
+/*   Updated: 2024/03/19 15:27:58 by brclemen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,9 @@ void	print_stack(t_stack *stack)
 {
 	while (stack != NULL)
 	{
-		ft_printf("%d ", stack->content);
+		ft_printf("Nombre : %d a l'index %d \n", stack->content, stack->index);
 		stack = stack->next;
 	}
-	ft_putchar_fd('\n', 1);
 }
 
 int	ft_lstsize_stack(t_stack *lst)

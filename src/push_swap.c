@@ -6,17 +6,12 @@
 /*   By: brclemen <brclemen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 16:36:16 by brclemen          #+#    #+#             */
-/*   Updated: 2024/03/14 22:47:12 by brclemen         ###   ########.fr       */
+/*   Updated: 2024/03/19 15:39:03 by brclemen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-// Still have to do the index things.
-
-// Cheking all the errors before putting every thing in the stack.
-// put all the values that you got in the args in the stack_a.
-// To do the one, two, three, four, five list of args, Radix doesn't do these.
 int	main(int ac, char *av[])
 {
 	t_stack	*stack_a;
@@ -28,9 +23,44 @@ int	main(int ac, char *av[])
 		return (0);
 	if (ac > 2 && error(av) != -1)
 	{
-		init_stack(&stack_a, av);
+		ft_init_stack(&stack_a, av);
+		ft_indexage(stack_a);
 		if (ac <= 6)
 			ft_call_no_radix(ac, &stack_a, &stack_b);
+		else if (ac > 6)
+			ft_call_radix(&stack_a, &stack_b);
+	}
+	ft_lstclear_stack(&stack_a);
+	ft_lstclear_stack(&stack_b);
+}
+// stack a = 1 | stack b = 0
+
+void	ft_call_radix(t_stack **stack_a, t_stack **stack_b)
+{
+	int	size;
+	int	max_num;
+	int	max_bits;
+	int	i;
+	int	j;
+
+	i = -1;
+	size = ft_lstsize_stack((*stack_a));
+	max_num = size - 1;
+	max_bits = 0;
+	while ((max_num >> max_bits) != 0)
+		max_bits++;
+	while (++i < max_bits)
+	{
+		j = -1;
+		while (++j < size)
+		{
+			if ((((*stack_a)->index >> i) & 1) == 1)
+				ft_rotate_a(stack_a);
+			else
+				ft_push_b(stack_a, stack_b);
+		}
+		while ((*stack_b))
+			ft_push_a(stack_a, stack_b);
 	}
 }
 
@@ -46,7 +76,31 @@ void	ft_call_no_radix(int ac, t_stack **stack_a, t_stack **stack_b)
 		ft_five_content(stack_a, stack_b);
 }
 
-void	init_stack(t_stack **stack, char *av[])
+void	ft_indexage(t_stack *stack)
+{
+	int			i;
+	t_stack		*temp;
+	t_stack		*start;
+
+	i = 0;
+	temp = stack;
+	start = temp;
+	while (stack)
+	{
+		temp = start;
+		while (temp)
+		{
+			if (temp->content < stack->content)
+				i++;
+			temp = temp->next;
+		}
+		stack->index = i;
+		stack = stack->next;
+		i = 0;
+	}
+}
+
+void	ft_init_stack(t_stack **stack, char *av[])
 {
 	int		index;
 	t_stack	*new;
@@ -59,35 +113,3 @@ void	init_stack(t_stack **stack, char *av[])
 		index++;
 	}
 }
-
-// int	main(int ac, char *av[])
-// {
-// 	error(av);
-// 	t_stack	*stack_a = NULL;
-// 	t_stack	*stack_b = NULL;
-// 	t_stack	*new = NULL;
-// 	if (ac == 1)
-// 		return (1);
-// 	int index;
-
-// 	index = 1;	
-// 	while(av[index])
-// 	{
-// 		new = ft_lstnew_stack(ft_atoi(av[index]));
-// 		ft_lstadd_back_stack(&stack_a, new);
-// 		index++;
-// 	}
-// 	index = 1;
-// 	while(av[index])
-// 	{
-// 		new = ft_lstnew_stack(ft_atoi(av[index]));
-// 		ft_lstadd_back_stack(&stack_b, new);
-// 		index++;
-// 	}
-// 	// ft_push_a(&stack_a, &stack_b);
-// 	// print_stack(stack_a);
-// 	// print_stack(stack_b);
-// 	// print_stack(stack_a);
-// 	// print_stack(stack_b);
-// 	return (0);
-// }

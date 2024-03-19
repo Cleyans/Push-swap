@@ -6,11 +6,12 @@
 /*   By: brclemen <brclemen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 17:34:50 by brclemen          #+#    #+#             */
-/*   Updated: 2024/03/14 22:11:17 by brclemen         ###   ########.fr       */
+/*   Updated: 2024/03/19 15:34:53 by brclemen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+#include <stdio.h>
 
 void	ft_swap_a(t_stack **stack_a)
 {
@@ -60,6 +61,7 @@ void	ft_push_a(t_stack **stack_a, t_stack **stack_b)
 	if ((*stack_b) == NULL)
 		return ;
 	ft_lstadd_front_stack(stack_a, ft_lstnew_stack((*stack_b)->content));
+	(*stack_a)->index = (*stack_b)->index;
 	node = (*stack_b)->next;
 	free(*stack_b);
 	(*stack_b) = node;
@@ -73,6 +75,7 @@ void	ft_push_b(t_stack **stack_a, t_stack **stack_b)
 	if ((*stack_a) == NULL)
 		return ;
 	ft_lstadd_front_stack(stack_b, ft_lstnew_stack((*stack_a)->content));
+	(*stack_b)->index = (*stack_a)->index;
 	node = (*stack_a)->next;
 	free(*stack_a);
 	(*stack_a) = node;

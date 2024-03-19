@@ -6,7 +6,7 @@
 /*   By: brclemen <brclemen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 17:50:47 by brclemen          #+#    #+#             */
-/*   Updated: 2024/03/14 02:04:41 by brclemen         ###   ########.fr       */
+/*   Updated: 2024/03/19 15:35:12 by brclemen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,21 @@ int	error(char *av[])
 {
 	if (error_ascii_sign(av) == 1)
 	{
-		ft_printf("Error \n");
+		ft_printf("Error\n");
 		return (-1);
 	}
 	else if (error_max_min(av) == 1)
 	{
-		ft_printf("Error \n");
+		ft_printf("Error\n");
 		return (-1);
 	}
 	else if (error_duplicate(av) == 1)
 	{
-		ft_printf("Error \n");
+		ft_printf("Error\n");
 		return (-1);
 	}
 	else if (is_it_sort(av) == 1)
-	{
-		ft_printf("Error : the list is already sort.\n");
 		return (-1);
-	}
 	return (0);
 }
 

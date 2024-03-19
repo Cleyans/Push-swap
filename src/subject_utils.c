@@ -6,7 +6,7 @@
 /*   By: brclemen <brclemen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 17:16:45 by brclemen          #+#    #+#             */
-/*   Updated: 2024/03/14 02:09:13 by brclemen         ###   ########.fr       */
+/*   Updated: 2024/03/18 14:32:41 by brclemen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,4 +79,19 @@ long	ft_atoi_push(const char *nptr)
 		index++;
 	}
 	return (sign * resultat);
+}
+
+void	ft_lstclear_stack(t_stack **lst)
+{
+	t_stack	*current;
+
+	if (!lst)
+		return ;
+	while (*lst)
+	{
+		current = (*lst)->next;
+		(*lst)->content = 0;
+		free(*lst);
+		*lst = current;
+	}
 }

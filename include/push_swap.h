@@ -6,7 +6,7 @@
 /*   By: brclemen <brclemen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 16:32:47 by brclemen          #+#    #+#             */
-/*   Updated: 2024/03/14 22:43:33 by brclemen         ###   ########.fr       */
+/*   Updated: 2024/03/19 15:27:36 by brclemen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,11 +66,12 @@ void	print_stack(t_stack *stack);
 void	ft_lstlast_stack(t_stack **lst);
 long	ft_atoi_push(const char *nptr);
 int		ft_lstsize_stack(t_stack *lst);
+void	ft_lstclear_stack(t_stack **lst);
 
 // ===== Fonctions utiles ===== //
 
 void	ft_lstbeforelast_stack(t_stack **lst);
-void	init_stack(t_stack **stack, char *av[]);
+void	ft_init_stack(t_stack **stack, char *av[]);
 
 // - NOT RADIX - //
 
@@ -80,7 +81,13 @@ void	ft_four_content(t_stack **stack_a, t_stack **stack_b);
 void	ft_five_content(t_stack **stack_a, t_stack **stack_b);
 int		ft_lowest_content(t_stack **stack_a);
 int		ft_lowest_rotate(t_stack **stack_a);
+
+// - RADIX - //
+
 int		ft_lowest_index(t_stack **stack_a);
+int		ft_biggest_content(t_stack **stack_a);
+void	ft_indexage(t_stack *stack);
+void	ft_call_radix(t_stack **stack_a, t_stack **stack_b);
 
 // ===== Fonction errors ===== //
 
