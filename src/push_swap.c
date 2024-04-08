@@ -6,7 +6,7 @@
 /*   By: brclemen <brclemen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 16:36:16 by brclemen          #+#    #+#             */
-/*   Updated: 2024/03/25 17:32:34 by brclemen         ###   ########.fr       */
+/*   Updated: 2024/04/08 20:34:22 by brclemen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ int	main(int ac, char *av[])
 		else if (ac > 6)
 			ft_call_radix(&stack_a, &stack_b);
 	}
-	print_stack(stack_a);
 	ft_lstclear_stack(&stack_a);
 	ft_lstclear_stack(&stack_b);
 }

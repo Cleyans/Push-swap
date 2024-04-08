@@ -6,7 +6,7 @@
 /*   By: brclemen <brclemen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 17:34:50 by brclemen          #+#    #+#             */
-/*   Updated: 2024/03/25 17:31:02 by brclemen         ###   ########.fr       */
+/*   Updated: 2024/04/08 20:33:40 by brclemen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	ft_push_a(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*node;
 
-	if ((*stack_b) == NULL)
+	if (!(*stack_b))
 		return ;
 	ft_lstadd_front_stack(stack_a, ft_lstnew_stack((*stack_b)->content));
 	(*stack_a)->index = (*stack_b)->index;
@@ -72,7 +72,7 @@ void	ft_push_b(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*node;
 
-	if ((*stack_a) == NULL)
+	if (!(*stack_a))
 		return ;
 	ft_lstadd_front_stack(stack_b, ft_lstnew_stack((*stack_a)->content));
 	(*stack_b)->index = (*stack_a)->index;
