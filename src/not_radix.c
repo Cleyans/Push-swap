@@ -6,7 +6,7 @@
 /*   By: brclemen <brclemen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 23:30:35 by brclemen          #+#    #+#             */
-/*   Updated: 2024/03/18 10:31:26 by brclemen         ###   ########.fr       */
+/*   Updated: 2024/03/25 17:26:55 by brclemen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,4 @@ void	ft_five_content(t_stack **stack_a, t_stack **stack_b)
 	ft_push_b(stack_a, stack_b);
 	ft_four_content(stack_a, stack_b);
 	ft_push_a(stack_a, stack_b);
-	print_stack((*stack_a));
 }

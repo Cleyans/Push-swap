@@ -6,7 +6,7 @@
 /*   By: brclemen <brclemen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 17:34:50 by brclemen          #+#    #+#             */
-/*   Updated: 2024/03/19 15:34:53 by brclemen         ###   ########.fr       */
+/*   Updated: 2024/03/25 17:31:02 by brclemen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_swap_a(t_stack **stack_a)
 {
 	int	tmp;
 
-	if (!(*stack_a)->content || !(*stack_a)->next->content)
+	if (!(*stack_a) || !(*stack_a)->next)
 		return ;
 	tmp = (*stack_a)->content;
 	(*stack_a)->content = (*stack_a)->next->content;
@@ -29,7 +29,7 @@ void	ft_swap_b(t_stack **stack_b)
 {
 	int	tmp;
 
-	if (!(*stack_b)->content || !(*stack_b)->next->content)
+	if (!(*stack_b) || !(*stack_b)->next)
 		return ;
 	tmp = (*stack_b)->content;
 	(*stack_b)->content = (*stack_b)->next->content;
@@ -42,8 +42,8 @@ void	ft_swap_ab(t_stack **stack_a, t_stack **stack_b)
 	int	tmp_a;
 	int	tmp_b;
 
-	if (!(*stack_a)->content || !(*stack_a)->next->content
-		|| !(*stack_b)->content || !(*stack_b)->next->content)
+	if (!(*stack_a) || !(*stack_a)->next
+		|| !(*stack_b) || !(*stack_b)->next)
 		return ;
 	tmp_a = (*stack_a)->content;
 	(*stack_a)->content = (*stack_a)->next->content;

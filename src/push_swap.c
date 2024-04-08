@@ -6,7 +6,7 @@
 /*   By: brclemen <brclemen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 16:36:16 by brclemen          #+#    #+#             */
-/*   Updated: 2024/03/19 15:39:03 by brclemen         ###   ########.fr       */
+/*   Updated: 2024/03/25 17:32:34 by brclemen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(int ac, char *av[])
 	stack_b = NULL;
 	if (ac == 1)
 		return (0);
-	if (ac > 2 && error(av) != -1)
+	if (ac >= 2 && error(av) != -1)
 	{
 		ft_init_stack(&stack_a, av);
 		ft_indexage(stack_a);
@@ -30,10 +30,10 @@ int	main(int ac, char *av[])
 		else if (ac > 6)
 			ft_call_radix(&stack_a, &stack_b);
 	}
+	print_stack(stack_a);
 	ft_lstclear_stack(&stack_a);
 	ft_lstclear_stack(&stack_b);
 }
-// stack a = 1 | stack b = 0
 
 void	ft_call_radix(t_stack **stack_a, t_stack **stack_b)
 {
