@@ -1,7 +1,7 @@
 # Push-swap
 
 ## Description
-Push-swap is a program that sorts a stack of integers using a limited set of operations. It implements the sorting algorithm called "RADIX".
+`Push-swap` is a program that sorts a stack of integers using a limited set of operations. It implements the sorting algorithm called "RADIX".
 
 ## Installation
 1. Clone this repository to your local machine.
